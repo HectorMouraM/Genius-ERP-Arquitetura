@@ -1,0 +1,12 @@
+[Unit]
+Description=Genius ERP Arquitetura
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/path/to/genius_erp_arquitetura
+ExecStart=/path/to/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8080 wsgi:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

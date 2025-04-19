@@ -1,0 +1,173 @@
+/* Estilos para o menu de ações do projeto */
+.project-actions-menu {
+    position: absolute;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+.project-actions-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-actions-menu li {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.project-actions-menu li:hover {
+    background-color: #f5f5f5;
+}
+
+.project-actions-menu li.danger {
+    color: #e53935;
+}
+
+.project-actions-menu li.danger:hover {
+    background-color: #ffebee;
+}
+
+/* Estilos para a barra de progresso */
+.box-progress-bar {
+    height: 4px;
+    border-radius: 2px;
+    background-color: #e9edf3;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.box-progress {
+    height: 100%;
+    background-color: #4f3ff0;
+    transition: width 0.3s ease;
+}
+
+/* Estilos para os status das etapas */
+.stage-item-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-pendente {
+    background-color: #ffecb3;
+    color: #ff8f00;
+}
+
+.status-em_andamento {
+    background-color: #b3e5fc;
+    color: #0277bd;
+}
+
+.status-aguardando_cliente {
+    background-color: #e1bee7;
+    color: #7b1fa2;
+}
+
+.status-concluida {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+/* Estilos para o botão de adicionar etapa no card */
+.add-participant {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.add-participant:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para o botão de excluir no modal de confirmação */
+.delete-btn {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #c62828;
+}
+
+/* Estilos para a expansão do card */
+.project-stages-preview {
+    display: none;
+    margin-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 16px;
+}
+
+.project-box.expanded .project-stages-preview {
+    display: block;
+}
+
+.stage-preview-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stage-preview-item:last-child {
+    border-bottom: none;
+}
+
+.stage-preview-name {
+    font-weight: 500;
+}
+
+.stage-preview-status {
+    font-size: 12px;
+}
+
+/* Ajustes para o botão de mais opções */
+.project-btn-more {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.project-btn-more:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para o botão de ver detalhes */
+.days-left {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.days-left:hover {
+    opacity: 0.8;
+}
