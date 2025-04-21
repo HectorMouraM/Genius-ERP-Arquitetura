@@ -4,18 +4,25 @@
   <meta charset="UTF-8">
   <title>Genius ERP Arquitetura</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  <!-- Fontes e Ícones -->
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="app-container">
+  <!-- Header -->
   <div class="app-header">
     <div class="app-header-left">
       <span class="app-icon"></span>
       <p class="app-name">Genius ERP</p>
       <div class="search-wrapper">
         <input class="search-input" type="text" placeholder="Buscar projeto...">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search"
+             viewBox="0 0 24 24">
           <circle cx="11" cy="11" r="8"></circle>
           <path d="M21 21l-4.35-4.35"></path>
         </svg>
@@ -23,33 +30,38 @@
     </div>
     <div class="app-header-right">
       <button class="mode-switch" title="Trocar Tema">
-        <svg class="moon" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+        <svg class="moon" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"
+             viewBox="0 0 24 24">
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
-      <button class="add-btn" title="Novo Projeto">+</button>
-      <button class="notification-btn">🔔</button>
+      <button class="add-btn" title="Novo Projeto" onclick="abrirModalProjeto()">+</button>
+      <button class="notification-btn" title="Notificações">🔔</button>
       <button class="profile-btn">
-        <img src="{{ url_for('static', filename='img/avatar.png') }}" />
+        <img src="{{ url_for('static', filename='img/avatar.png') }}" alt="Avatar">
         <span>Arquiteta</span>
       </button>
     </div>
-    <button class="messages-btn">💬</button>
+    <button class="messages-btn" title="Mensagens">💬</button>
   </div>
 
+  <!-- Conteúdo -->
   <div class="app-content">
+    <!-- Sidebar -->
     <div class="app-sidebar">
-      <a href="#" class="app-sidebar-link active">🏠</a>
-      <a href="#" class="app-sidebar-link">📊</a>
-      <a href="#" class="app-sidebar-link">📅</a>
-      <a href="#" class="app-sidebar-link">⚙️</a>
+      <a href="#" class="app-sidebar-link active" title="Dashboard">🏠</a>
+      <a href="#" class="app-sidebar-link" title="Relatórios">📊</a>
+      <a href="#" class="app-sidebar-link" title="Agenda">📅</a>
+      <a href="#" class="app-sidebar-link" title="Configurações">⚙️</a>
     </div>
 
+    <!-- Seção de Projetos -->
     <div class="projects-section">
       <div class="projects-section-header">
         <p>Projetos</p>
         <p class="time">{{ current_date }}</p>
       </div>
+
       <div class="projects-section-line">
         <div class="projects-status">
           <div class="item-status">
@@ -58,8 +70,8 @@
           </div>
         </div>
         <div class="view-actions">
-          <button class="view-btn list-view" title="Listar">📃</button>
-          <button class="view-btn grid-view active" title="Grade">🔲</button>
+          <button class="view-btn list-view" title="Visualização Lista">📃</button>
+          <button class="view-btn grid-view active" title="Visualização Grade">🔲</button>
         </div>
       </div>
 
@@ -71,7 +83,7 @@
               <span>{{ projeto.data_criacao.strftime('%d/%m/%Y') if projeto.data_criacao else 'Data indefinida' }}</span>
               <div class="more-wrapper">
                 <form action="{{ url_for('project_bp.deletar_projeto', id=projeto.id) }}" method="POST">
-                  <button class="project-btn-more">🗑</button>
+                  <button class="project-btn-more" title="Excluir Projeto">🗑</button>
                 </form>
               </div>
             </div>
@@ -82,7 +94,7 @@
             <div class="box-progress-wrapper">
               <p class="box-progress-header">Progresso</p>
               <div class="box-progress-bar">
-                <span class="box-progress" style="width: {{ projeto.progresso|default(0) }}%;"></span>
+                <span class="box-progress" style="width: {{ projeto.progresso|default(0) }}%; background-color: #4f3ff0;"></span>
               </div>
               <p class="box-progress-percentage">{{ projeto.progresso|default(0) }}%</p>
             </div>
@@ -95,11 +107,16 @@
           </div>
         </div>
         {% else %}
-        <p>Nenhum projeto encontrado.</p>
+        <p style="padding: 1rem;">Nenhum projeto encontrado.</p>
         {% endfor %}
       </div>
     </div>
   </div>
 </div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/project-actions.js') }}"></script>
+<script src="{{ url_for('static', filename='js/stage-actions.js') }}"></script>
 </body>
 </html>
