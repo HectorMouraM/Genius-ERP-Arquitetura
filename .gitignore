@@ -1,1 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# SQLite database
 *.db
+*.sqlite3
+
+# Uploads e arquivos de mídia
+static/uploads/*
+!static/uploads/.gitkeep
+
+# Arquivos de ambiente
+.env
+*.env
+
+# VSCode e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos temporários e de sistema
+.DS_Store
+Thumbs.db
+
+# Migrações (caso use flask-migrate futuramente)
+migrations/
+
+# Arquivos de build Python
+*.egg-info/
+dist/
+build/
